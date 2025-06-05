@@ -1,3 +1,4 @@
+# diarization.py
 import os
 from pyannote.audio import Pipeline
 
@@ -19,7 +20,7 @@ def run_diarization(input_wav_path: str, auth_token: str):
     # Apply the diarization pipeline to the input audio
     diarization = pipeline(input_wav_path)
 
-    print("Diarization completed successfully.")
+    print("Diarization completed successfully. \n")
 
     # Prepare output directory and file name
     output_dir = os.path.join("data", "diarization")
@@ -35,7 +36,7 @@ def run_diarization(input_wav_path: str, auth_token: str):
     with open(output_rttm_path, "w") as rttm_file:
         diarization.write_rttm(rttm_file)
 
-    print(f"Diarization saved to: {output_rttm_path}")
+    print(f"Diarization saved to: {output_rttm_path}\n")
 
     # Return the diarization object for further processing
     return diarization
